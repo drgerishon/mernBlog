@@ -1,0 +1,10 @@
+.signup-bg-container{
+    background-image: url('../images/splash1.jpg');
+    background-size: cover;
+    background-position: center;
+    height: 80vh;
+}
+.signup-form{
+    width: 90%;
+    margin: 0 auto;
+}
