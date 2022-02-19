@@ -2,18 +2,22 @@ import React, {useState} from 'react'
 import { Container, Row, Col, Form, Button} from 'react-bootstrap';
 import { Link } from 'react-router-dom';
 import './Login.css';
-import axios from 'axios';
+import { useLoginUserMutation } from '../services/appApi';
+// import axios from 'axios';
 
 function Login() {
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
-
+    const [loginUser, {data}] = useLoginUserMutation()
     function handleLogin(e){
         e.preventDefault();
-        axios.post('http://localhost:5000/users/login', {email, password})
-        .then(({data}) => console.log(data))
-        .catch(err => console.log(err.message))
-        
+        // axios.post('http://localhost:5000/users/login', {email, password})
+        // .then(({data}) => console.log(data))
+        // .catch(err => console.log(err.message))
+        loginUser({email, password});
+    }
+    if(data){
+        console.log(data);
     }
     return (
         <Container>
